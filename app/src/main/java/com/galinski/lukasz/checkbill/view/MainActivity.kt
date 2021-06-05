@@ -17,17 +17,25 @@ class MainActivity : AppCompatActivity() {
         binding = MainMenuBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        createHorizontalCalendar()
+    }
 
+    private fun createStartDate(): Calendar {
         val startDate = Calendar.getInstance()
         startDate.add(Calendar.MONTH, -1)
+        return startDate
+    }
 
+    private fun createEndDate(): Calendar {
         val endDate = Calendar.getInstance()
         endDate.add(Calendar.MONTH, 1)
+        return endDate
+    }
 
+    private fun createHorizontalCalendar(){
         HorizontalCalendar.Builder(this, binding.horizontalCalendar.id)
-                .range(startDate, endDate)
-                .datesNumberOnScreen(3)
-                .build()
-
+            .range(createStartDate(), createEndDate())
+            .datesNumberOnScreen(3)
+            .build()
     }
 }
