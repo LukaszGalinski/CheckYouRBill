@@ -8,7 +8,7 @@ import androidx.room.Query
 interface DatabaseDao{
 
     @Query("SELECT * FROM BillDatabase WHERE dateString LIKE:date")
-    fun getItemsWithDate(date: String)
+    fun getItemsWithDate(date: String): List<BillDatabase>
 
     @Insert
     fun addItem(newBill: BillDatabase)
@@ -17,5 +17,8 @@ interface DatabaseDao{
     fun removeItem(id: Long)
 
     @Query("SELECT * FROM BillDatabase WHERE dateString>= :startDate AND dateString<= :endDate")
-    fun getItemsWithDateRange(startDate: String, endDate: String)
+    fun getItemsWithDateRange(startDate: String, endDate: String): List<BillDatabase>
+
+    @Query("SELECT * FROM BillDatabase")
+    fun getAllItems(): List<BillDatabase>
 }
