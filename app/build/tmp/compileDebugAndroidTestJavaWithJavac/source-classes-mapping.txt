@@ -1,2 +1,0 @@
-com/galinski/lukasz/checkbill/test/BuildConfig.java
- com.galinski.lukasz.checkbill.test.BuildConfig

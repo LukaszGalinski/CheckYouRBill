@@ -1,1 +1,0 @@
-com.galinski.lukasz.checkbill.test
