@@ -4,12 +4,10 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.galinski.lukasz.checkbill.repository.AppBillsDatabase
+import com.galinski.lukasz.checkbill.repository.AppDatabase
 import com.galinski.lukasz.checkbill.repository.DatabaseDao
-import junit.framework.Assert.assertTrue
 import org.hamcrest.Matchers.equalTo
 import org.junit.After
-import org.junit.Assert
 import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
@@ -20,12 +18,12 @@ import kotlin.jvm.Throws
 @RunWith(AndroidJUnit4::class)
 class EntityWriteAndDeleteTest {
     private lateinit var testDao: DatabaseDao
-    private lateinit var testDatabase: AppBillsDatabase
+    private lateinit var testDatabase: AppDatabase
 
     @Before
     fun createDb(){
         val context = ApplicationProvider.getApplicationContext<Context>()
-        testDatabase = Room.inMemoryDatabaseBuilder(context, AppBillsDatabase::class.java).build()
+        testDatabase = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
         testDao = testDatabase.billsDao()
     }
 
